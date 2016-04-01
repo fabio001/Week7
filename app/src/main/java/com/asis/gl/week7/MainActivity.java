@@ -1,6 +1,7 @@
 package com.asis.gl.week7;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,7 +44,14 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("randomNumber",rnd.nextInt(100));
                     startActivity(intent);
 
-                } else {
+                }
+                else if ( usrStr.equals("admin") && usrPass.equals("call")) {
+                    Uri uri = Uri.parse("tel:05557772233");
+                    Intent callIntent = new Intent(Intent.ACTION_DIAL,uri);
+                    startActivity(callIntent);
+                    //Intent intent = new Intent(MainActivity.this,)
+                }
+                else {
                     Log.v("btnbtn","Wrong access");
                 }
 
